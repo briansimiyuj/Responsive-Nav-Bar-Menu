@@ -1,0 +1,211 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+header{
+    background: #000;
+    position: relative;
+    width: 100%;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo, nav, .hamburger{
+    position: absolute;
+    top: 48px;
+}
+
+.logo{
+    left: 14px;
+    padding: 5px;
+}
+
+nav{
+    background-color: brown;
+    width: 50%;
+    left: 500px;
+}
+
+.menu{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.relative{
+    position: relative;
+}
+
+.relative:hover .sub-menu{
+    display: initial;
+}
+
+.sub-menu{
+    background-color: brown;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: -15px;
+    top: 25px;
+    display: none;  
+}
+
+.sub-menu li{
+    margin: 1rem 0; 
+}
+
+.hamburger{
+    background-color: red;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 49px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.bar{
+    background-color: #fff; 
+    height: 2px;
+    width: 30px;
+    position: relative;
+    display: flex;
+}
+
+.bar::before, .bar::after{
+   content: '';
+   position: absolute;
+   left: 0;
+   height: 100%;
+   width: 100%;
+   background-color: #fff;
+}
+
+.bar::before{
+   top: 8px;
+}
+
+.bar::after{
+   bottom: 8px;
+}
+
+.hamburger.active .bar::before{
+   top: 0;
+   transform: rotate(45deg);
+}
+
+.hamburger.active .bar::after{
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.hamburger.active .bar{
+    background-color: transparent;
+}
+
+
+
+
+
+
+
+
+
+
+/* Media Queries */
+
+@media(max-width: 992px){
+
+    nav{
+        left: 300px;
+    }
+
+}
+
+
+
+
+
+
+
+@media(max-width: 768px){
+
+    .hamburger{
+        visibility: visible;
+    }
+
+    nav{
+        left: 0;
+        width: 30%;
+        height: auto;
+        visibility: hidden;
+        top: 99px;
+    }
+
+    nav.open{
+        visibility: visible;
+    }
+
+    .menu{
+        flex-direction: column;
+    }
+
+    .logo{
+        left: 300px;
+    }
+
+    li{
+        margin: 1rem 0;
+    }
+
+    li a{
+        font-size: 2rem; 
+    }
+    
+    .relative:hover{
+        margin-bottom: 18rem;
+    }
+
+    .sub-menu{
+        top: 50px;
+        left: 80px;
+    }
+
+    .sub-menu li{
+        padding-right: 15px;
+    }
+
+}
+
+
+
+@media(max-width: 576px){
+
+    .logo{
+        left: 150px;
+    }
+
+    nav{
+        width: 45%;
+    }
+
+}
